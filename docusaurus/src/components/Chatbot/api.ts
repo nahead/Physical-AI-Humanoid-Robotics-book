@@ -21,11 +21,16 @@ export interface ChatResponse {
   citations?: Citation[];
 }
 
+const constructUrl = (apiBaseUrl: string, path: string) => {
+  const baseUrl = apiBaseUrl.endsWith('/api') ? apiBaseUrl.slice(0, -4) : apiBaseUrl;
+  return `${baseUrl}/api/${path}`;
+};
+
 export const fetchChatResponse = async (request: ChatRequest, apiBaseUrl: string): Promise<ChatResponse> => {
   const finalApiBaseUrl = apiBaseUrl || 'http://localhost:3001';
 
   try {
-    const response = await fetch(`${finalApiBaseUrl}/api/chat`, {
+    const response = await fetch(constructUrl(finalApiBaseUrl, 'chat'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +75,7 @@ export const fetchTranslation = async (request: TranslateRequest, apiBaseUrl: st
   const finalApiBaseUrl = apiBaseUrl || 'http://localhost:3001';
 
   try {
-    const response = await fetch(`${finalApiBaseUrl}/api/translate`, {
+    const response = await fetch(constructUrl(finalApiBaseUrl, 'translate'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -105,7 +110,7 @@ export const fetchPersonalizedContent = async (request: PersonalizationRequest, 
   const finalApiBaseUrl = apiBaseUrl || 'http://localhost:3001';
 
   try {
-    const response = await fetch(`${finalApiBaseUrl}/api/personalize`, {
+    const response = await fetch(constructUrl(finalApiBaseUrl, 'personalize'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
