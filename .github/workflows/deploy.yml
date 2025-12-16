@@ -1,0 +1,44 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # This workflow will run on pushes to the 'main' branch
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch all history for Docusaurus to be able to compute changes
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Use Node.js version 20 (as defined in plan.md)
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          cd docusaurus
+          npm install
+
+      - name: Build Docusaurus website
+        run: |
+          cd docusaurus
+          npm run build
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docusaurus/build
+          # By default, the action pushes to the 'gh-pages' branch
+          # Docusaurus expects the 'gh-pages' branch by default

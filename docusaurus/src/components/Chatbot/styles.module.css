@@ -1,0 +1,304 @@
+/* docusaurus/src/components/Chatbot/styles.module.css */
+.chatToggleButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  padding: 15px 25px; /* Increased padding */
+  border-radius: 9999px; /* Fully rounded */
+  border: none;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-size: 1.1rem; /* Larger font */
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--ifm-global-shadow-lg); /* Sleek shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.chatToggleButton:hover {
+  transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+  background-color: var(--ifm-color-primary-dark);
+  box-shadow: var(--ifm-global-shadow-lg); /* Maintain shadow */
+}
+
+.chatWindow {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 400px;
+  max-width: 90vw;
+  height: 600px;
+  max-height: 80vh; /* Increased max height */
+  background-color: var(--ifm-background-surface-color);
+  border-radius: 12px; /* Sleeker rounded corners */
+  box-shadow: var(--ifm-global-shadow-lg); /* Consistent shadow */
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  transition: transform 0.3s ease-in-out; /* Smooth open/close */
+}
+
+.chatHeader {
+  padding: 15px 20px;
+  background-color: var(--ifm-color-primary); /* Primary color header */
+  color: white; /* White text */
+  border-bottom: 1px solid var(--ifm-color-primary-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatHeader h2 {
+  margin: 0;
+  font-size: 1.25rem; /* Larger heading */
+  font-weight: 700;
+  color: white;
+  flex-grow: 1;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.8rem; /* Larger close button */
+  cursor: pointer;
+  color: white;
+  transition: color 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.chatMessages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--ifm-background-color); /* Match global background */
+}
+
+.message {
+  padding: 12px 18px; /* More padding */
+  border-radius: 18px; /* Rounded bubbles */
+  max-width: 85%; /* Slightly wider messages */
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: var(--ifm-global-shadow-lw); /* Subtle shadow on messages */
+}
+
+.message p {
+  margin: 0;
+}
+
+.user {
+  background-color: var(--ifm-color-primary-light); /* Lighter primary for user */
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px; /* Slightly less rounded on bottom right */
+}
+
+.chatbot {
+  background-color: var(--ifm-color-emphasis-100); /* Lighter gray for chatbot */
+  color: var(--ifm-font-color-base);
+  align-self: flex-start;
+  border-bottom-left-radius: 6px; /* Slightly less rounded on bottom left */
+}
+
+.chatInputForm {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  align-items: center;
+}
+
+.chatInputForm input {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 25px; /* More rounded input field */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-color); /* Match global background */
+  color: var(--ifm-font-color-base);
+  font-size: 1rem;
+  margin-right: 10px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chatInputForm input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+.chatInputForm button {
+  padding: 12px 20px;
+  border-radius: 25px; /* More rounded button */
+  border: none;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.chatInputForm button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.chatInputForm button:disabled {
+  background-color: var(--ifm-color-emphasis-400);
+  cursor: not-allowed;
+  transform: translateY(0);
+}
+
+.citations {
+  margin-top: 10px;
+  font-size: 0.75em; /* Slightly smaller */
+  color: var(--ifm-font-color-secondary);
+}
+
+.citations strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.citations ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.citations li a {
+  display: inline-block;
+  padding: 4px 10px; /* More padding */
+  background-color: var(--ifm-color-emphasis-200); /* Lighter background */
+  color: var(--ifm-font-color-base);
+  border-radius: 15px; /* More rounded */
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.citations li a:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Larger gap */
+  opacity: 0.7;
+}
+
+.loading span {
+  width: 10px; /* Larger dots */
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+/* Styles for Language Toggle */
+.langToggle {
+  display: flex;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 25px; /* More rounded */
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--ifm-background-color);
+  box-shadow: var(--ifm-global-shadow-lw); /* Subtle shadow */
+  transition: all 0.2s ease-in-out;
+}
+
+.langToggle:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.langToggle span {
+  padding: 6px 12px; /* More padding */
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--ifm-font-color-secondary);
+}
+
+.langToggle span.activeLang {
+  background-color: var(--ifm-color-secondary); /* Use secondary color for active */
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+}
+
+.authButton {
+  background-color: var(--ifm-color-secondary); /* Use secondary for auth */
+  border: none;
+  color: var(--ifm-font-color-base);
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.authButton:hover {
+  background-color: var(--ifm-color-secondary-dark);
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .chatToggleButton {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .chatWindow {
+    bottom: 80px;
+    right: 20px;
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .chatHeader h2 {
+    font-size: 1.1rem;
+  }
+
+  .closeButton {
+    font-size: 1.5rem;
+  }
+
+  .chatInputForm input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .chatInputForm button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .message {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .langToggle span {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+}

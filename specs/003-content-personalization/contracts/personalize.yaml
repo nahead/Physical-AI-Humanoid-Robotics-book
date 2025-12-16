@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Content Personalization API
+  version: 1.0.0
+  description: API for personalizing book chapter content based on user background.
+
+paths:
+  /personalize:
+    post:
+      summary: Personalize chapter content
+      operationId: personalizeContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonalizationRequest'
+      responses:
+        '200':
+          description: Personalized content returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalizationResponse'
+        '400':
+          description: Bad Request (e.g., missing fields)
+        '401':
+          description: Unauthorized (user not logged in)
+        '429':
+          description: Quota Exceeded (Gemini API limit)
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    PersonalizationRequest:
+      type: object
+      required:
+        - originalContent
+        - softwareBackground
+        - hardwareBackground
+      properties:
+        originalContent:
+          type: string
+          description: The original markdown content of the chapter to be personalized.
+          example: "# Introduction\nThis is a complex topic..."
+        softwareBackground:
+          type: string
+          enum: ["beginner", "intermediate", "advanced"]
+          description: The user's software background level.
+          example: "beginner"
+        hardwareBackground:
+          type: string
+          enum: ["beginner", "intermediate", "advanced"]
+          description: The user's hardware background level.
+          example: "intermediate"
+
+    PersonalizationResponse:
+      type: object
+      required:
+        - personalizedContent
+      properties:
+        personalizedContent:
+          type: string
+          description: The markdown content after personalization by Gemini.
+          example: "# Easy Introduction\nThis is a simple topic..."

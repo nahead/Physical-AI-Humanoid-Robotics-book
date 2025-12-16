@@ -1,0 +1,112 @@
+/* docusaurus/src/theme/DocItem/Layout/styles.module.css */
+
+.loginPromptContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  height: calc(100vh - var(--ifm-navbar-height) - 100px);
+}
+
+.loginPromptContainer h1 {
+  margin-bottom: 1rem;
+}
+
+.loginPromptContainer p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--ifm-navbar-height) - 100px);
+  font-size: 1.5rem;
+}
+
+.docPageContainer {
+  position: relative;
+}
+
+.personalizationControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+  gap: 1rem; /* Space between buttons/toggles */
+  padding: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  margin-bottom: 1rem;
+}
+
+.languageToggleContainer {
+  /* Removed absolute positioning as it's now part of flex layout */
+  z-index: 100;
+}
+
+.langToggle {
+  display: flex;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 25px; /* More rounded */
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--ifm-background-surface-color); /* Use surface color */
+  box-shadow: var(--ifm-global-shadow-lw); /* Subtle shadow */
+  transition: all 0.2s ease-in-out;
+}
+
+.langToggle:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.langToggle span {
+  padding: 6px 12px; /* More padding */
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--ifm-font-color-base); /* Use base font color */
+}
+
+.langToggle span.activeLang {
+  background-color: var(--ifm-color-secondary); /* Use secondary color for active */
+  color: var(--ifm-font-color-base); /* Text remains base color */
+  font-weight: 600;
+}
+
+.errorMessage {
+  background-color: var(--ifm-color-danger-light);
+  color: var(--ifm-color-danger);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-danger);
+}
+
+.translateButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 25px;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.translateButton:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.translateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

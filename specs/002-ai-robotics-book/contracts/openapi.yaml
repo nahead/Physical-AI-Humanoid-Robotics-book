@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API
+  description: API for the AI-powered chatbot for the Physical AI & Humanoid Robotics Book.
+  version: 1.0.0
+paths:
+  /chat:
+    post:
+      summary: Send a message to the chatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: The user's message.
+                session_id:
+                  type: string
+                  format: uuid
+                  description: The current chat session ID (optional).
+      responses:
+        '200':
+          description: A successful response from the chatbot.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The chatbot's reply.
+                  session_id:
+                    type: string
+                    format: uuid
+                    description: The session ID for the conversation.
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        source_chapter:
+                          type: string
+                        source_module:
+                          type: string
+  /index-content:
+    post:
+      summary: Trigger the indexing of book content
+      description: (Admin-only) Tells the backend to re-scan the Docusaurus content, chunk it, and update the vector database.
+      responses:
+        '202':
+          description: Indexing process started.

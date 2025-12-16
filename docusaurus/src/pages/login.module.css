@@ -1,0 +1,131 @@
+/* docusaurus/src/pages/login.module.css */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+}
+
+.authForm {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+  text-align: center;
+}
+
+/* docusaurus/src/pages/login.module.css */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-footer-height));
+  background-color: var(--ifm-background-color);
+}
+
+.authForm {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  border-radius: 12px; /* More rounded corners */
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--ifm-global-shadow-lg); /* More prominent shadow */
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.authForm h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--ifm-font-color-base);
+  font-size: 2rem; /* Larger heading */
+  font-weight: 700;
+}
+
+.authForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Increased gap */
+}
+
+.authForm input, .authForm select {
+  padding: 1rem; /* More padding */
+  border-radius: 8px; /* More rounded input fields */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.authForm input:focus, .authForm select:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.25);
+}
+
+.authForm button {
+  padding: 1rem;
+  border-radius: 8px; /* More rounded buttons */
+  border: none;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.authForm button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.authForm button:disabled {
+  background-color: var(--ifm-color-emphasis-400);
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: var(--ifm-color-primary); /* Use primary color for links */
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.toggleButton:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+.errorText {
+  color: var(--ifm-color-danger);
+  font-size: 0.95rem;
+  margin-top: -0.75rem;
+  text-align: left;
+}
+
+.messageText {
+  color: var(--ifm-color-success);
+  font-size: 0.95rem;
+  margin-top: -0.75rem;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .authForm {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  .authForm h2 {
+    font-size: 1.5rem;
+  }
+}

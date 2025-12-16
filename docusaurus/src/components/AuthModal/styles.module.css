@@ -1,0 +1,79 @@
+/* docusaurus/src/components/AuthModal/styles.module.css */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  background: var(--ifm-background-surface-color);
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+}
+
+.modalContent h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modalContent input {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.modalContent button {
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--ifm-font-color-secondary);
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: var(--ifm-link-color);
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.errorText {
+  color: var(--ifm-color-danger);
+  font-size: 14px;
+}
+
+.messageText {
+  color: var(--ifm-color-success);
+  font-size: 14px;
+}

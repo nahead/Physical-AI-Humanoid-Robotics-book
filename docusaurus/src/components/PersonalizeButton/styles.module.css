@@ -1,0 +1,42 @@
+/* docusaurus/src/components/PersonalizeButton/styles.module.css */
+.personalizeButton {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+  align-self: flex-start; /* Ensure it doesn't stretch */
+  padding: 0.75rem 1.5rem; /* Increased padding */
+  border-radius: 8px; /* Slightly rounded */
+  border: none;
+  background-color: var(--ifm-color-secondary); /* Use secondary color */
+  color: var(--ifm-font-color-base); /* Text color */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--ifm-global-shadow-lw); /* Subtle shadow */
+  transition: all 0.2s ease-in-out; /* Smooth transitions */
+}
+
+.personalizeButton:hover:not(:disabled) {
+  background-color: var(--ifm-color-secondary-dark); /* Darker secondary on hover */
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: var(--ifm-global-shadow-md); /* More pronounced shadow */
+}
+
+.personalizeButton:disabled {
+  background-color: var(--ifm-color-emphasis-400); /* Grayed out when disabled */
+  color: var(--ifm-font-color-secondary);
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.personalizeButton.active {
+  background-color: var(--ifm-color-primary); /* Primary color when active */
+  color: white;
+}
+
+.personalizeButton.active:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-md);
+}
