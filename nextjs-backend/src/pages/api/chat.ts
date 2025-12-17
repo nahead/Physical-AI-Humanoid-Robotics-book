@@ -68,6 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
 
   } catch (error) {
+    console.error('--- DETAILED ERROR ---', error);
     handleApiError(res, error, 'Failed to generate chat response.');
   }
 }
